@@ -1,5 +1,6 @@
 <?php
   include('includes/header.php');
+  include('pdo.php');
 
 // je vérifie que email et password ne soient pas vide
 // je vais chercher dans la table utilisateur que l'utilisateur existe
@@ -7,8 +8,8 @@
 // si l'utilisateur existe on va définir une session authentifiée (l'utilisateur est loggé))
 // si connecté propose le logout
 if(count($_POST) > 0){
-  if($_POST['email'] == 'yvon@gmail.com' && $_POST['password'] == '123'){
-    $_SESSION['email'] = 'yvon@gmail.com';
+  if(isValid($_POST['email'] ,$_POST['password'],$pdo) ){
+    $_SESSION['email'] = $_POST['email'];
     header('Location: http://sandbox.test/liste.php');
   } else {
     header('Location: http://sandbox.test/login.php');
