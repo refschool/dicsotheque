@@ -1,5 +1,12 @@
-<?php
+<?php 
+
   include('includes/header.php');
+
+  print_r($_SESSION);
+  
+  if(!isset($_SESSION['email'])){
+    header('Location: http://sandbox.test/login.php');
+  }
 ?>
   <body>
   <?php
