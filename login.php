@@ -1,6 +1,6 @@
 <?php
   include('includes/header.php');
-  include('pdo.php');
+  include('includes/function-pdo.php');
 
 // je vérifie que email et password ne soient pas vide
 // je vais chercher dans la table utilisateur que l'utilisateur existe

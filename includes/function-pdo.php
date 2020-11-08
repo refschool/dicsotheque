@@ -1,9 +1,5 @@
 <?php
 
-$dsn = 'mysql:host=localhost;dbname=disco';
-$user='root';$pass='root';
-$pdo = new \PDO($dsn, $user, $pass);
-
 function isValid($email,$password,$pdo){
     
 

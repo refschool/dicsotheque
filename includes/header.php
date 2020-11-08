@@ -1,5 +1,8 @@
 <?php
 session_start();
+$dsn = 'mysql:host=localhost;dbname=disco';
+$user='root';$pass='root';
+$pdo = new \PDO($dsn, $user, $pass);
 ?>
 <!doctype html>
 <html lang="en">
