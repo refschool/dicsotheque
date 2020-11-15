@@ -3,6 +3,16 @@
   include('includes/header.php');
 
   print_r($_SESSION);
+
+  $idalbum = 0;
+
+  if(isset($_GET['idalbum'])){
+    $idalbum = $_GET['idalbum'];
+
+
+    // TODO : fonction pour chercher les informations de l'album
+
+  }
   
   if(!isset($_SESSION['email'])){
     header('Location: http://sandbox.test/login.php');
