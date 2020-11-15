@@ -26,6 +26,7 @@ if(isset($_POST['password']) ){
     if($res) { echo 'Création utilisateur réussie';}
 }
 
+
 //insertion dans la base de donnée
 function addUser($email,$password,$pdo){
 
