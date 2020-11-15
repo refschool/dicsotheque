@@ -6,8 +6,6 @@
     header('Location: http://sandbox.test/login.php');
   }
 
-
-
 ?>
 
   <body>
@@ -23,17 +21,18 @@ if(isset($_POST['password']) ){
     $crypted_password = password_hash($_POST['password'], PASSWORD_BCRYPT );
     $email = $_POST['email'];
     echo $crypted_password;
-
+    echo $email;
+    $res = addUser($email,$crypted_password,$pdo);
+    if($res) { echo 'Création utilisateur réussie';}
 }
 
 //insertion dans la base de donnée
-function addUser($pdo){
+function addUser($email,$password,$pdo){
 
-    $sql = "";
+    $sql = "INSERT INTO utilisateurs (email,password) VALUES (:email,:password)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-   
+    $params = ['email' => $email,'password' => $password];
+    $result = $stmt->execute($params);
     return $result;
   }
   ?>
