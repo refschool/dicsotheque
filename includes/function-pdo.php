@@ -10,7 +10,8 @@ function isValid($email,$password,$pdo){
     $result = $stmt->fetchAll();
 
     if(count($result) > 0){
-        if($result[0]['password'] == $password){
+       
+        if(password_verify( $password , $result[0]['password'])){
             return true;
         }
     }
