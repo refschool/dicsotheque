@@ -17,7 +17,7 @@ $disques = getDisques($pdo);
 
 function getDisques($pdo){
 
-  $sql = "SELECT album,artiste, G.genre FROM disques D INNER JOIN genre G ON G.id = D.genre";
+  $sql = "SELECT D.id as idalbum,album,artiste, G.genre FROM disques D INNER JOIN genre G ON G.id = D.genre";
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -53,7 +53,7 @@ for($i=0;$i< count($disques);$i++){
 ?>
     <tr>
       <th scope="row"><?=$i?></th>
-      <td><?=$disques[$i]['album']?></td>
+      <td><a href="detail.php?idalbum=<?=$disques[$i]['idalbum']?>"><?=$disques[$i]['album']?></a></td>
       <td><?=$disques[$i]['artiste']?></td>
       <td><?=$disques[$i]['genre']?></td>
     </tr>
