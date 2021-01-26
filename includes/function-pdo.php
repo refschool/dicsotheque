@@ -3,7 +3,6 @@
 function isValid($email, $password, $pdo)
 {
 
-
     $sql = "SELECT email,password FROM utilisateurs WHERE email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $email);
